@@ -1,26 +1,44 @@
-class lista():
+class Conjuntos():
     def __init__(self):
-        self.lista = ['a','b','c']
-        self.quant = 3
+        self.lista = []
+        self.nome=""
+        self.quant = 0
+
+    def nome(self,valor1):
+        self.nome=valor1
 
     def inserir(self,valor):
-        a = 0
-        i = 0
-        while i < self.quant:
-            if self.lista[i] != valor:
-                a += 1
-            else:
-                a = 0
-            i+=1
-        if a != 0:
-            self.lista.append(valor)
-            self.quant += 1
+        if valor in self.lista:
+            return False
         else:
-            print("Já existe!")
-            
-
+            self.lista.append(valor)
+            self.quant+=1
+            return self.lista
+        
     def imprimir(self):
-        return self.lista
-
+            print("Nome: ",self.nome,", Conjunto: ","{",*self.lista,"}.", sep="")
+         
     def tamanho(self):
         return self.quant
+    def pertence(self,valor):
+        return valor in self.lista
+                
+
+    
+teste=Conjuntos()
+
+teste.inserir("a")
+print(teste.inserir("a"))
+teste.inserir("b")
+
+
+teste.imprimir()
+
+print(teste.pertence("abc"))
+
+
+
+
+
+
+
